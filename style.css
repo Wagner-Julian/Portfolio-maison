@@ -450,3 +450,7 @@
     color: #8a2be2;
     transform: translateY(-3px);
   }
+  .project-tags a{
+    color: #8a2be2;
+    font-weight: bold;
+  }
