@@ -218,4 +218,7 @@ footer {
     .top-navbar {
         padding: 1rem;
     }
+    .nav-links {
+        gap: 1rem;
+    }
 }
