@@ -2,6 +2,7 @@
   <title>Julian Wagner - Portfolio</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="style.css">
+  
   </head>
   <body>
   <nav class="top-navbar">
@@ -148,15 +149,22 @@
               <!-- Project 2 -->
               <div class="project-card">
                 <div class="project-image">
-                  <img src="img/Capture d’écran 2025-01-14 162502.jpg" alt="Aperçu du projet">
+                  <a href="https://wagner-julian.github.io/Pokememon-Julian-Wagner/"target="_blank">
+                  <img src="img/Pokememon1.png" alt="Aperçu du projet">
+                  </a>
                 </div>
                 <div class="project-content">
-                  <h3>Python</h3>
-                  <p>Ensemble des exercices Python que j'ai réalisé au cours de mon apprentissage.</p>
+                  <h3>Projet Pokememon</h3>
+                  <p>Projet réalisé en collaboration avec Yannick, un camarade de ma promo.
+                    Développé en JavaScript, ce jeu utilise GitHub pour la centralisation du code, avec plusieurs branches pour le travail en équipe.
+                    Le jeu consiste à retrouver des paires de cartes représentant des Pokémon. Lorsqu’une paire est trouvée, le Pokémon correspondant est capturé et ajouté au Pokédex.
+                    Chaque capture déclenche une petite animation unique, en fonction du type du Pokémon (feu, eau, plante, etc.)..</p>
                   <div class="project-tags">
-                    <span class="tag">Python</span>
+                    <span class="tag">Html</span>
+                    <span class="tag">CSS</span>
+                    <span class="tag">JavaScript</span>
                     <span class="tag">Github</span>
-                    <a href="https://github.com/Wagner-Julian/Exercice-Python" target="_blank">Lien vers le projet Github</a>
+                    <a href="https://github.com/Wagner-Julian/Pokememon-Julian-Wagner" target="_blank">Lien vers le projet Github</a>
                   </div>
                 </div>
               </div>
@@ -177,6 +185,23 @@
                   </div>
                 </div>
               </div>
+
+        <!-- // Project 4  -->
+
+        <div class="project-card">
+          <div class="project-image">
+            <img src="img/Capture d’écran 2025-01-14 162502.jpg" alt="Aperçu du projet">
+          </div>
+          <div class="project-content">
+            <h3>Python</h3>
+            <p>Ensemble des exercices Python que j'ai réalisé au cours de mon apprentissage.</p>
+            <div class="project-tags">
+              <span class="tag">Python</span>
+              <span class="tag">Github</span>
+              <a href="https://github.com/Wagner-Julian/Exercice-Python" target="_blank">Lien vers le projet Github</a>
+            </div>
+          </div>
+        </div>
       
               <!-- Add more projects as needed -->
             </div>
@@ -227,122 +252,5 @@
       <p>© 2025 WAGNER Julian. Tous droits réservés.</p>
     </footer>
   </div>
-  
-  <script>
-  function createLightning() {
-    const canvas = document.createElement('canvas');
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-    document.getElementById('lightning').appendChild(canvas);
-    const ctx = canvas.getContext('2d');
-  
-    function lightning() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      
-      if (Math.random() < 0.08) {
-        const bolts = Math.floor(Math.random() * 3) + 1;
-        
-        for(let i = 0; i < bolts; i++) {
-          const x = Math.random() * canvas.width;
-          const y = 0;
-          
-          ctx.beginPath();
-          ctx.strokeStyle = `rgba(138, 43, 226, ${Math.random() * 0.7 + 0.3})`;
-          ctx.lineWidth = Math.random() * 3 + 2;
-          ctx.moveTo(x, y);
-          
-          let currentX = x;
-          let currentY = y;
-          
-          while (currentY < canvas.height) {
-            currentX += (Math.random() - 0.5) * 100;
-            currentY += Math.random() * 30 + 20;
-            ctx.lineTo(currentX, currentY);
-            
-            if(Math.random() < 0.2) {
-              const branchX = currentX + (Math.random() - 0.5) * 50;
-              const branchY = currentY + Math.random() * 30;
-              ctx.moveTo(currentX, currentY);
-              ctx.lineTo(branchX, branchY);
-              ctx.moveTo(currentX, currentY);
-            }
-          }
-          
-          ctx.stroke();
-        }
-        
-        setTimeout(() => {
-          ctx.clearRect(0, 0, canvas.width, canvas.height);
-        }, 100);
-      }
-    }
-  
-    setInterval(lightning, 50);
-  }
-  
-  createLightning();
-  
-  window.addEventListener('resize', () => {
-    const lightning = document.getElementById('lightning');
-    lightning.innerHTML = '';
-    createLightning();
-  });
-  
-  // Smooth scroll
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-      e.preventDefault();
-      document.querySelector(this.getAttribute('href')).scrollIntoView({
-        behavior: 'smooth'
-      });
-    });
-  });
-  
-  // Navigation dots
-  const sections = document.querySelectorAll('.section');
-  const navDots = document.querySelectorAll('.sections-nav a');
-  
-  window.addEventListener('scroll', () => {
-    let current = '';
-    sections.forEach(section => {
-      const sectionTop = section.offsetTop;
-      if (scrollY >= sectionTop - 300) {
-        current = section.getAttribute('id');
-      }
-    });
-
-    navDots.forEach(dot => {
-      dot.classList.remove('active');
-      if (dot.getAttribute('href') === `#${current}`) {
-        dot.classList.add('active');
-      }
-    });
-  });
-
-  const track = document.querySelector('.carousel-track');
-  const prevButton = document.querySelector('.carousel-button.prev');
-  const nextButton = document.querySelector('.carousel-button.next');
-  const cards = Array.from(track.children);
-  
-  // Calculer la largeur exacte d'une carte
-  const cardWidth = cards[0].getBoundingClientRect().width;
-  
-  let currentIndex = 0; // Index de la carte visible
-  
-  nextButton.addEventListener('click', () => {
-    if (currentIndex < cards.length - 1) {
-      currentIndex++; // Passe à la carte suivante
-      track.style.transform = `translateX(-${cardWidth * currentIndex}px)`;
-    }
-  });
-  
-  prevButton.addEventListener('click', () => {
-    if (currentIndex > 0) {
-      currentIndex--; // Reviens à la carte précédente
-      track.style.transform = `translateX(-${cardWidth * currentIndex}px)`;
-    }
-  });
-  
-  
-  </script>
   </body></html>
+  <script src="script.js"></script>

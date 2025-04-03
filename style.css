@@ -454,3 +454,12 @@
     color: #8a2be2;
     font-weight: bold;
   }
+
+  @media (max-width: 600px) {
+    .top-navbar {
+      padding: 1rem;
+    }
+    .nav-links {
+      gap: 1rem;
+    }
+}
