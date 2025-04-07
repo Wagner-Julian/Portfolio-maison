@@ -340,6 +340,9 @@
   .carousel-button:hover {
     background: #8a2be2;
   }
+  .buttons-carousel-vertical{
+    display: none;
+  }
   
   .experience {
     position: relative;
@@ -458,8 +461,95 @@
   @media (max-width: 600px) {
     .top-navbar {
       padding: 1rem;
+      align-items: center;
     }
     .nav-links {
       gap: 1rem;
+      align-items: center;
     }
+    .nav-logo {
+      display: none;
+    }
+    .nav-content {
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+}
+.project-card {
+  flex: 0 0 100%;
+  box-sizing: border-box;
+  background: rgba(30, 30, 50, 0.3);
+  border-radius: 15px;
+  overflow: visible;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(138, 43, 226, 0.3);
+  margin: 11px;
+  margin-top: 20px;
+  display: none;
+  opacity: 0;
+  transform: translateY(-30px);
+  transition: all 0.5s ease;
+  min-height: 470px;
+}
+.project-card.active {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+.project-content {
+  padding: 0.5rem;
+}
+.project-image {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+.carousel-button {
+  display: none;
+}
+.carousel {
+  position: relative;
+}
+
+/* Conteneur des boutons haut et bas */
+.buttons-carousel-vertical {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 0;
+  height: 100%;
+  transform: translateX(-50%);
+  pointer-events: none;
+  display: block;
+}
+
+/* Boutons individuels */
+.button-carousel-vertical {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%) rotate(90deg);
+  background: rgba(138, 43, 226, 0.6);
+  border: none;
+  color: #fff;
+  font-size: 1.4rem;
+  padding: 0.5rem 1rem;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 10;
+  pointer-events: all;
+}
+
+.button-carousel-vertical.haut {
+  top: -2.5rem; /* Au-dessus du carousel */
+}
+
+.button-carousel-vertical.bas {
+  bottom: -2.5rem; /* En-dessous du carousel */
+}
+
+.button-carousel-vertical:hover {
+  background: #8a2be2;
+}
+
 }

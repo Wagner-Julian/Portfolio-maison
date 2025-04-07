@@ -92,6 +92,8 @@ function createLightning() {
   const prevButton = document.querySelector('.carousel-button.prev');
   const nextButton = document.querySelector('.carousel-button.next');
   const cards = Array.from(track.children);
+  const buttonHaut = document.querySelector('.button-carousel-vertical.haut');
+  const buttonBas = document.querySelector('.button-carousel-vertical.bas');
   
   
   // Calculer la largeur exacte d'une carte
@@ -111,4 +113,30 @@ function createLightning() {
   prevButton.addEventListener('click', () => {
     currentIndex = (currentIndex - 1 + cards.length) % cards.length;
     track.style.transform = `translateX(-${cardWidth * currentIndex}px)`;
+  });
+  
+  const cartes = Array.from(document.querySelectorAll('.project-card'));
+  let verticalIndex = 0;
+  
+  function showCard(index) {
+    cartes.forEach((card, i) => {
+      if (i === index) {
+        card.classList.add('active');
+      } else {
+        card.classList.remove('active');
+      }
+    });
+  }
+  
+  // Init au chargement
+  showCard(verticalIndex);
+  
+  buttonBas.addEventListener('click', () => {
+    verticalIndex = (verticalIndex + 1) % cartes.length;
+    showCard(verticalIndex);
+  });
+  
+  buttonHaut.addEventListener('click', () => {
+    verticalIndex = (verticalIndex - 1 + cartes.length) % cartes.length;
+    showCard(verticalIndex);
   });
