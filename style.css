@@ -38,6 +38,13 @@
     font-weight: bold;
     text-decoration: none;
   }
+
+  .nav-logo img {
+    height: 50px;
+    width: auto;
+    object-fit: contain;
+  }
+  
   
   .nav-links {
     display: flex;
@@ -467,8 +474,8 @@
       gap: 1rem;
       align-items: center;
     }
-    .nav-logo {
-      display: none;
+    .nav-logo img {
+    margin-right: 25px;
     }
     .nav-content {
       margin: 0 auto;

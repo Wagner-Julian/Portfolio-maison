@@ -221,4 +221,7 @@ footer {
     .nav-links {
         gap: 1rem;
     }
+    .nav-logo img {
+        margin-right: 25px;
+        }
 }
