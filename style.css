@@ -471,6 +471,7 @@
       align-items: center;
     }
     .nav-links {
+      font-size: clamp(12px, 2vw, 18px);
       gap: 1rem;
       align-items: center;
     }

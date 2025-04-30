@@ -45,6 +45,7 @@ body {
 .nav-links {
     display: flex;
     gap: 2rem;
+    font-size: clamp(12px, 2vw, 18px);
 }
 
 .nav-links a {
